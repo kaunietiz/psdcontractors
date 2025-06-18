@@ -3,102 +3,503 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PSD Contractors Limited</title>
+  <title>PSD Contractors Limited - Premium Painting & Decorating</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      padding: 0;
+      box-sizing: border-box;
     }
-    header {
-      background-color: #1a1a1a;
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: radial-gradient(ellipse at center, rgba(218, 165, 32, 0.1) 0%, transparent 50%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23DAA520" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .hero-content {
       text-align: center;
-      padding: 40px 0 30px;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+      animation: fadeInUp 1s ease-out;
     }
-    header img {
-      max-height: 220px;
-      width: auto;
+
+    .logo-container {
+      margin-bottom: 40px;
+      position: relative;
     }
-    .content {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: float 6s ease-in-out infinite;
     }
-    .section {
-      margin-bottom: 60px;
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 30px rgba(218, 165, 32, 0.5));
     }
-    .section h2 {
+
+    .company-name {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #DAA520 0%, #FFD700 50%, #DAA520 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 20px;
-      color: #111;
+      letter-spacing: -0.02em;
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+
+    .tagline {
+      font-size: 1.5rem;
+      color: #cccccc;
+      font-weight: 300;
+      margin-bottom: 40px;
+      opacity: 0.9;
     }
-    .card {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    .cta-button {
+      display: inline-block;
+      padding: 18px 40px;
+      background: linear-gradient(145deg, #DAA520, #B8860B);
+      color: #0a0a0a;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(218, 165, 32, 0.3);
+      position: relative;
       overflow: hidden;
     }
-    .card img {
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
     }
-    .card-title {
-      padding: 15px;
-      font-weight: bold;
-      background-color: #fafafa;
+
+    .cta-button:hover::before {
+      left: 100%;
     }
-    footer {
-      background-color: #1a1a1a;
-      color: #ccc;
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(218, 165, 32, 0.4);
+    }
+
+    /* Main Content */
+    .main-content {
+      position: relative;
+      background: linear-gradient(180deg, transparent 0%, rgba(218, 165, 32, 0.05) 100%);
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
       text-align: center;
-      padding: 20px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #DAA520, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #cccccc;
+      margin-bottom: 60px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Gallery Grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(218, 165, 32, 0.2);
+      position: relative;
+      group: hover;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(218, 165, 32, 0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(218, 165, 32, 0.2);
+      border-color: rgba(218, 165, 32, 0.4);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-style: italic;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, 
+        rgba(218, 165, 32, 0.1) 0%, 
+        transparent 25%, 
+        transparent 75%, 
+        rgba(218, 165, 32, 0.1) 100%);
+    }
+
+    .card-content {
+      padding: 25px;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #DAA520;
+      margin-bottom: 10px;
+    }
+
+    .card-description {
+      color: #cccccc;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, rgba(218, 165, 32, 0.1), transparent);
+      border-top: 1px solid rgba(218, 165, 32, 0.2);
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .contact-item {
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(218, 165, 32, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      background: rgba(218, 165, 32, 0.1);
+      transform: translateY(-5px);
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      color: #DAA520;
+      margin-bottom: 15px;
+    }
+
+    .contact-text {
+      font-size: 1.1rem;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .contact-subtext {
+      color: #cccccc;
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid rgba(218, 165, 32, 0.2);
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .footer-text {
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .hero {
+        min-height: 80vh;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="images/logo.png" alt="PSD Contractors Logo">
-  </header>
-  <div class="content">
-    <div class="section">
-      <h2>Our Work</h2>
-      <div class="gallery">
-        <div class="card">
-          <img src="images/feature-wall.jpg" alt="Feature Wall Design" />
-          <div class="card-title">Feature Wall – Custom Geometric Painting</div>
-        </div>
-        <div class="card">
-          <img src="images/blue-ceiling.jpg" alt="Ceiling Paint Work" />
-          <div class="card-title">Commercial Ceiling – Blue Accent Finish</div>
-        </div>
-        <div class="card">
-          <img src="images/outdoor-woodwork.jpg" alt="Wood Restoration" />
-          <div class="card-title">Outdoor Woodwork – Sanded & Finished Oak</div>
-        </div>
-        <div class="card">
-          <img src="images/garage-door-after.jpg" alt="Garage Door Painting" />
-          <div class="card-title">Garage Doors – Finished High-Gloss Brown</div>
-        </div>
-        <div class="card">
-          <img src="images/garage-door-before.jpg" alt="Garage Door Prep" />
-          <div class="card-title">Garage Doors – Prepped & Sanded for Restoration</div>
-        </div>
-        <div class="card">
-          <img src="images/museum-cream.jpg" alt="Staircase Work" />
-          <div class="card-title">Gallery Hall – Cream Finish with Natural Light</div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="logo-container">
+        <div class="logo">
+          <img src="images/logo.png" alt="PSD Contractors Logo" />
         </div>
       </div>
+      <h1 class="company-name">PSD CONTRACTORS</h1>
+      <p class="tagline">"Make it Nice." – Premium Painting & Decorating since 2022</p>
+      <a href="#portfolio" class="cta-button">View Our Work</a>
     </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+      <div class="container">
+        <h2 class="section-title">Our Premium Work</h2>
+        <p class="section-subtitle">
+          Transforming spaces with precision, artistry, and attention to detail. 
+          Each project reflects our commitment to excellence.
+        </p>
+        
+        <div class="gallery">
+          <div class="project-card">
+            <div class="card-image">Feature Wall Design</div>
+            <div class="card-content">
+              <h3 class="card-title">Custom Geometric Feature Wall</h3>
+              <p class="card-description">Precision-painted geometric patterns creating a stunning focal point with expert color coordination and flawless execution.</p>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="card-image">Commercial Ceiling</div>
+            <div class="card-content">
+              <h3 class="card-title">Commercial Blue Accent Ceiling</h3>
+              <p class="card-description">Professional commercial finish with specialized techniques ensuring durability and visual impact in high-traffic environments.</p>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="card-image">Oak Restoration</div>
+            <div class="card-content">
+              <h3 class="card-title">Premium Oak Woodwork Restoration</h3>
+              <p class="card-description">Expert sanding, treatment, and finishing of outdoor oak surfaces, combining preservation with aesthetic enhancement.</p>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="card-image">Garage Transformation</div>
+            <div class="card-content">
+              <h3 class="card-title">High-Gloss Garage Door Finish</h3>
+              <p class="card-description">Complete restoration from prep to final coat, delivering a luxurious high-gloss brown finish that enhances curb appeal.</p>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="card-image">Surface Preparation</div>
+            <div class="card-content">
+              <h3 class="card-title">Professional Surface Preparation</h3>
+              <p class="card-description">Meticulous preparation work ensuring perfect adhesion and longevity. The foundation of every premium finish.</p>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="card-image">Gallery Interior</div>
+            <div class="card-content">
+              <h3 class="card-title">Museum-Quality Gallery Finish</h3>
+              <p class="card-description">Sophisticated cream finish optimized for natural light, creating the perfect backdrop for art and architectural features.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section section">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">
+          Ready to transform your space? Contact us for a premium consultation and quote.
+        </p>
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-text">+44 7727 410170</div>
+            <div class="contact-subtext">Call for immediate consultation</div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-text">psdcontractors@yahoo.com</div>
+            <div class="contact-subtext">Email for detailed quotes</div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-text">18 Queen Elizabeth Drive</div>
+            <div class="contact-subtext">SS17 7TG</div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-  <footer>
-    <p>📞 +44 7727 410170 | ✉️ psdcontractors@yahoo.com</p>
-    <p>18 Queen Elizabeth Drive, SS17 7TG</p>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">© 2024 PSD Contractors Limited. All rights reserved. | Licensed & Insured Professional Contractors</p>
+    </div>
   </footer>
+
+  <script>
+    // Smooth scrolling for navigation
+    document.querySelector('.cta-button').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('#portfolio').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+
+    // Add scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'all 0.6s ease';
+      observer.observe(card);
+    });
+
+    // Add floating animation to cards on hover
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+  </script>
 </body>
 </html>
