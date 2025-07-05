@@ -4,474 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PSD Contractors Limited - Premium Painting & Decorating</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-      color: #ffffff;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      background: radial-gradient(ellipse at center, rgba(218, 165, 32, 0.1) 0%, transparent 50%);
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23DAA520" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
-      opacity: 0.3;
-      pointer-events: none;
-    }
-
-    .hero-content {
-      text-align: center;
-      z-index: 2;
-      max-width: 800px;
-      padding: 0 20px;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .logo-container {
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    .logo {
-      margin: 0 auto 20px;
-    }
-
-    .logo img {
-      width: 300px;
-      height: auto;
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-    }
-
-    .company-name {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 700;
-      background: linear-gradient(135deg, #DAA520 0%, #FFD700 50%, #DAA520 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-    }
-
-    .tagline {
-      font-size: 1.5rem;
-      color: #cccccc;
-      font-weight: 300;
-      margin-bottom: 40px;
-      opacity: 0.9;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 18px 40px;
-      background: linear-gradient(145deg, #DAA520, #B8860B);
-      color: #0a0a0a;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(218, 165, 32, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-button::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.5s;
-    }
-
-    .cta-button:hover::before {
-      left: 100%;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(218, 165, 32, 0.4);
-    }
-
-    /* Main Content */
-    .main-content {
-      position: relative;
-      background: linear-gradient(180deg, transparent 0%, rgba(218, 165, 32, 0.05) 100%);
-    }
-
-    .section {
-      padding: 100px 0;
-      position: relative;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      text-align: center;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, #DAA520, #FFD700);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 700;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.2rem;
-      color: #cccccc;
-      margin-bottom: 60px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Before/After Section - Simplified */
-    .before-after-section {
-      background: linear-gradient(135deg, rgba(218, 165, 32, 0.05), transparent);
-      border-top: 1px solid rgba(218, 165, 32, 0.2);
-    }
-
-    .before-after-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 50px;
-      margin-top: 60px;
-    }
-
-    .comparison-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(218, 165, 32, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .comparison-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(218, 165, 32, 0.15);
-    }
-
-    .comparison-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-    }
-
-    .image-container {
-      position: relative;
-      height: 280px;
-      overflow: hidden;
-    }
-
-    .comparison-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .image-container:hover .comparison-image {
-      transform: scale(1.05);
-    }
-
-    .image-label {
-      position: absolute;
-      top: 12px;
-      background: rgba(0, 0, 0, 0.8);
-      color: #DAA520;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(218, 165, 32, 0.3);
-    }
-
-    .before-label {
-      left: 12px;
-    }
-
-    .after-label {
-      right: 12px;
-    }
-
-    .separator {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 2px;
-      height: 50px;
-      background: linear-gradient(180deg, #DAA520, #FFD700);
-      transform: translate(-50%, -50%);
-      z-index: 2;
-    }
-
-    .separator::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 8px;
-      height: 8px;
-      background: #DAA520;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      border: 2px solid #0a0a0a;
-    }
-
-    .card-content {
-      padding: 24px;
-    }
-
-    .card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #DAA520;
-      margin-bottom: 12px;
-    }
-
-    .card-description {
-      color: #cccccc;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    /* Gallery Grid */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
-      margin-top: 60px;
-    }
-
-    .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.4s ease;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(218, 165, 32, 0.2);
-      position: relative;
-      group: hover;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(218, 165, 32, 0.1), transparent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-
-    .project-card:hover::before {
-      opacity: 1;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 60px rgba(218, 165, 32, 0.2);
-      border-color: rgba(218, 165, 32, 0.4);
-    }
-
-    .project-card-image {
-      width: 100%;
-      height: 250px;
-      background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-      font-style: italic;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card-image::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, 
-        rgba(218, 165, 32, 0.1) 0%, 
-        transparent 25%, 
-        transparent 75%, 
-        rgba(218, 165, 32, 0.1) 100%);
-    }
-
-    .project-card-content {
-      padding: 25px;
-    }
-
-    .project-card-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #DAA520;
-      margin-bottom: 10px;
-    }
-
-    .project-card-description {
-      color: #cccccc;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    /* Contact Section */
-    .contact-section {
-      background: linear-gradient(135deg, rgba(218, 165, 32, 0.1), transparent);
-      border-top: 1px solid rgba(218, 165, 32, 0.2);
-    }
-
-    .contact-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      text-align: center;
-    }
-
-    .contact-item {
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(218, 165, 32, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .contact-item:hover {
-      background: rgba(218, 165, 32, 0.1);
-      transform: translateY(-5px);
-    }
-
-    .contact-icon {
-      font-size: 2rem;
-      color: #DAA520;
-      margin-bottom: 15px;
-    }
-
-    .contact-text {
-      font-size: 1.1rem;
-      color: #ffffff;
-      font-weight: 500;
-    }
-
-    .contact-subtext {
-      color: #cccccc;
-      font-size: 0.9rem;
-      margin-top: 5px;
-    }
-
-    /* Footer */
-    .footer {
-      padding: 40px 0;
-      text-align: center;
-      border-top: 1px solid rgba(218, 165, 32, 0.2);
-      background: rgba(0, 0, 0, 0.3);
-    }
-
-    .footer-text {
-      color: #999;
-      font-size: 0.9rem;
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .gallery {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      
-      .before-after-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .comparison-images {
-        grid-template-columns: 1fr;
-      }
-
-      .image-container {
-        height: 200px;
-      }
-
-      .separator {
-        display: none;
-      }
-
-      .before-label {
-        left: 12px;
-        top: 12px;
-      }
-
-      .after-label {
-        right: 12px;
-        top: 12px;
-      }
-      
-      .hero {
-        min-height: 80vh;
-      }
-      
-      .section {
-        padding: 60px 0;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- Hero Section -->
@@ -499,130 +32,41 @@
         </p>
         
         <div class="before-after-grid">
+          <!-- Royal Gallery Comparison -->
           <div class="comparison-card">
             <div class="comparison-images">
               <div class="image-container">
-                <img src="images/garage-door-before.jpg" alt="Before restoration" class="comparison-image">
+                <img src="images/royal-gallery-before.jpg" alt="Royal Gallery Before" class="comparison-image">
                 <div class="image-label before-label">BEFORE</div>
               </div>
               <div class="image-container">
-                <img src="images/garage-door-after.jpg" alt="After restoration" class="comparison-image">
+                <img src="images/royal-gallery-after.jpg" alt="Royal Gallery After" class="comparison-image">
                 <div class="image-label after-label">AFTER</div>
               </div>
               <div class="separator"></div>
             </div>
             <div class="card-content">
-              <h3 class="card-title">Commercial Door Restoration</h3>
-              <p class="card-description">Complete transformation with professional surface preparation and premium protective coating application.</p>
-            </div>
-          </div>
-          
-          <div class="comparison-card">
-            <div class="comparison-images">
-              <div class="image-container">
-                <img src="images/outdoor-woodwork.jpg" alt="Before work" class="comparison-image">
-                <div class="image-label before-label">BEFORE</div>
-              </div>
-              <div class="image-container">
-                <img src="images/blue-ceiling.jpg" alt="After work" class="comparison-image">
-                <div class="image-label after-label">AFTER</div>
-              </div>
-              <div class="separator"></div>
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Commercial Space Upgrade</h3>
-              <p class="card-description">From weathered exterior to stunning interior finish, showcasing our versatility and attention to detail.</p>
+              <h3 class="card-title">Royal Gallery Restoration</h3>
+              <p class="card-description">Enhanced elegance with classic tones, museum-grade finish, and detailed craftsmanship throughout the staircase and gallery space.</p>
             </div>
           </div>
 
+          <!-- Offices Comparison -->
           <div class="comparison-card">
             <div class="comparison-images">
               <div class="image-container">
-                <img src="images/museum-cream.jpg" alt="Before enhancement" class="comparison-image">
+                <img src="images/offices-before.jpg" alt="Offices Before" class="comparison-image">
                 <div class="image-label before-label">BEFORE</div>
               </div>
               <div class="image-container">
-                <img src="images/feature-wall.jpg" alt="After enhancement" class="comparison-image">
+                <img src="images/offices-after.jpg" alt="Offices After" class="comparison-image">
                 <div class="image-label after-label">AFTER</div>
               </div>
               <div class="separator"></div>
             </div>
             <div class="card-content">
-              <h3 class="card-title">Modern Feature Wall</h3>
-              <p class="card-description">Transformed from standard walls to striking geometric design with precision execution.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section">
-      <div class="container">
-        <h2 class="section-title">Our Premium Work</h2>
-        <p class="section-subtitle">
-          Transforming spaces with precision, artistry, and attention to detail. 
-          Each project reflects our commitment to excellence.
-        </p>
-        
-        <div class="gallery">
-          <div class="project-card">
-            <div class="project-card-image">
-              <img src="images/blue-ceiling.jpg" alt="Commercial Blue Ceiling Work" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="project-card-content">
-              <h3 class="project-card-title">Commercial Blue Accent Ceiling</h3>
-              <p class="project-card-description">Professional commercial finish with specialized techniques ensuring durability and visual impact in high-traffic environments.</p>
-            </div>
-          </div>
-          
-          <div class="project-card">
-            <div class="project-card-image">
-              <img src="images/feature-wall.jpg" alt="Modern Feature Wall Design" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="project-card-content">
-              <h3 class="project-card-title">Modern Feature Wall Design</h3>
-              <p class="project-card-description">Contemporary geometric patterns with premium color blocking, creating sophisticated architectural interest in residential spaces.</p>
-            </div>
-          </div>
-          
-          <div class="project-card">
-            <div class="project-card-image">
-              <img src="images/outdoor-woodwork.jpg" alt="Exterior Building Restoration" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="project-card-content">
-              <h3 class="project-card-title">Commercial Exterior Restoration</h3>
-              <p class="project-card-description">Complete building facade restoration including surface preparation, priming, and premium weather-resistant finish application.</p>
-            </div>
-          </div>
-          
-          <div class="project-card">
-            <div class="project-card-image">
-              <img src="images/museum-cream.jpg" alt="Commercial Corridor Painting" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="project-card-content">
-              <h3 class="project-card-title">Corporate Corridor Enhancement</h3>
-              <p class="project-card-description">Precision wall paneling with gold accent detailing, creating elegant professional environments for modern office spaces.</p>
-            </div>
-          </div>
-          
-          <div class="project-card">
-            <div class="project-card-image">
-              <img src="images/garage-door-after.jpg" alt="High-Gloss Commercial Doors" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="project-card-content">
-              <h3 class="project-card-title">Premium Commercial Door Finish</h3>
-              <p class="project-card-description">High-gloss protective coating on commercial entrance doors, combining durability with sophisticated brown finish for lasting appeal.</p>
-            </div>
-          </div>
-          
-          <div class="project-card">
-            <div class="project-card-image">
-              <img src="images/garage-door-before.jpg" alt="Commercial Wall Paneling" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="project-card-content">
-              <h3 class="project-card-title">Executive Office Wall Systems</h3>
-              <p class="project-card-description">Sophisticated dark green paneling with gold trim detailing for premium corporate environments requiring elegant professional aesthetics.</p>
+              <h3 class="card-title">Corporate Office Feature Upgrade</h3>
+              <p class="card-description">Modern professional look with dark tones and precision masking for clean-lined paneling and executive-grade ambiance.</p>
             </div>
           </div>
         </div>
@@ -676,7 +120,7 @@
       });
     });
 
-    // Add scroll animations
+    // Scroll animation
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -691,23 +135,11 @@
       });
     }, observerOptions);
 
-    // Observe all project cards and comparison cards
-    document.querySelectorAll('.project-card, .comparison-card').forEach(card => {
+    document.querySelectorAll('.comparison-card').forEach(card => {
       card.style.opacity = '0';
       card.style.transform = 'translateY(30px)';
       card.style.transition = 'all 0.6s ease';
       observer.observe(card);
-    });
-
-    // Add floating animation to cards on hover
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-      });
-      
-      card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-      });
     });
   </script>
 </body>
