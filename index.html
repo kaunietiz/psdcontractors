@@ -157,130 +157,115 @@
       margin-right: auto;
     }
 
-    /* Before/After Section */
+    /* Before/After Section - Simplified */
     .before-after-section {
       background: linear-gradient(135deg, rgba(218, 165, 32, 0.05), transparent);
       border-top: 1px solid rgba(218, 165, 32, 0.2);
     }
 
-    .before-after-container {
+    .before-after-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 40px;
+      grid-template-columns: 1fr;
+      gap: 50px;
       margin-top: 60px;
     }
 
-    .before-after-card {
+    .comparison-card {
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
+      border-radius: 16px;
       overflow: hidden;
-      backdrop-filter: blur(10px);
       border: 1px solid rgba(218, 165, 32, 0.2);
-      transition: all 0.4s ease;
-      position: relative;
+      transition: all 0.3s ease;
     }
 
-    .before-after-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 60px rgba(218, 165, 32, 0.2);
-      border-color: rgba(218, 165, 32, 0.4);
+    .comparison-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(218, 165, 32, 0.15);
     }
 
-    .before-after-images {
+    .comparison-images {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      height: 300px;
+      position: relative;
     }
 
-    .before-section, .after-section {
+    .image-container {
       position: relative;
+      height: 280px;
       overflow: hidden;
     }
 
-    .before-section::before {
-      content: 'BEFORE';
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background: rgba(0, 0, 0, 0.8);
-      color: #DAA520;
-      padding: 6px 12px;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      z-index: 2;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(218, 165, 32, 0.3);
-    }
-
-    .after-section::before {
-      content: 'AFTER';
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: rgba(0, 0, 0, 0.8);
-      color: #DAA520;
-      padding: 6px 12px;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      z-index: 2;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(218, 165, 32, 0.3);
-    }
-
-    .before-image, .after-image {
+    .comparison-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
     }
 
-    .before-section:hover .before-image,
-    .after-section:hover .after-image {
+    .image-container:hover .comparison-image {
       transform: scale(1.05);
     }
 
-    .divider {
+    .image-label {
+      position: absolute;
+      top: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #DAA520;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(218, 165, 32, 0.3);
+    }
+
+    .before-label {
+      left: 12px;
+    }
+
+    .after-label {
+      right: 12px;
+    }
+
+    .separator {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 3px;
-      height: 60%;
+      width: 2px;
+      height: 50px;
       background: linear-gradient(180deg, #DAA520, #FFD700);
       transform: translate(-50%, -50%);
       z-index: 2;
-      border-radius: 2px;
     }
 
-    .divider::before {
+    .separator::before {
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 12px;
-      height: 12px;
+      width: 8px;
+      height: 8px;
       background: #DAA520;
       border-radius: 50%;
       transform: translate(-50%, -50%);
-      box-shadow: 0 0 0 2px #0a0a0a;
+      border: 2px solid #0a0a0a;
     }
 
-    .before-after-content {
-      padding: 25px;
+    .card-content {
+      padding: 24px;
     }
 
-    .before-after-title {
-      font-size: 1.3rem;
+    .card-title {
+      font-size: 1.25rem;
       font-weight: 600;
       color: #DAA520;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .before-after-description {
+    .card-description {
       color: #cccccc;
       font-size: 0.95rem;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     /* Gallery Grid */
@@ -325,7 +310,7 @@
       border-color: rgba(218, 165, 32, 0.4);
     }
 
-    .card-image {
+    .project-card-image {
       width: 100%;
       height: 250px;
       background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
@@ -338,7 +323,7 @@
       overflow: hidden;
     }
 
-    .card-image::after {
+    .project-card-image::after {
       content: '';
       position: absolute;
       top: 0;
@@ -352,18 +337,18 @@
         rgba(218, 165, 32, 0.1) 100%);
     }
 
-    .card-content {
+    .project-card-content {
       padding: 25px;
     }
 
-    .card-title {
+    .project-card-title {
       font-size: 1.3rem;
       font-weight: 600;
       color: #DAA520;
       margin-bottom: 10px;
     }
 
-    .card-description {
+    .project-card-description {
       color: #cccccc;
       font-size: 0.95rem;
       line-height: 1.5;
@@ -451,9 +436,31 @@
         gap: 20px;
       }
       
-      .before-after-container {
+      .before-after-grid {
         grid-template-columns: 1fr;
         gap: 30px;
+      }
+
+      .comparison-images {
+        grid-template-columns: 1fr;
+      }
+
+      .image-container {
+        height: 200px;
+      }
+
+      .separator {
+        display: none;
+      }
+
+      .before-label {
+        left: 12px;
+        top: 12px;
+      }
+
+      .after-label {
+        right: 12px;
+        top: 12px;
       }
       
       .hero {
@@ -486,58 +493,63 @@
     <!-- Before/After Section -->
     <section class="before-after-section section">
       <div class="container">
-        <h2 class="section-title">Transformations</h2>
+        <h2 class="section-title">Before & After</h2>
         <p class="section-subtitle">
-          See the dramatic difference our professional work makes. 
-          Clear before and after comparisons of our transformations.
+          See the quality difference our professional work makes
         </p>
         
-        <div class="before-after-container">
-          <div class="before-after-card">
-            <div class="before-after-images">
-              <div class="before-section">
-                <img src="images/garage-door-before.jpg" alt="Before: Garage Door" class="before-image">
+        <div class="before-after-grid">
+          <div class="comparison-card">
+            <div class="comparison-images">
+              <div class="image-container">
+                <img src="images/garage-door-before.jpg" alt="Before restoration" class="comparison-image">
+                <div class="image-label before-label">BEFORE</div>
               </div>
-              <div class="after-section">
-                <img src="images/garage-door-after.jpg" alt="After: Garage Door" class="after-image">
+              <div class="image-container">
+                <img src="images/garage-door-after.jpg" alt="After restoration" class="comparison-image">
+                <div class="image-label after-label">AFTER</div>
               </div>
-              <div class="divider"></div>
+              <div class="separator"></div>
             </div>
-            <div class="before-after-content">
-              <h3 class="before-after-title">Commercial Door Restoration</h3>
-              <p class="before-after-description">Complete transformation from weathered surfaces to premium high-gloss finish, demonstrating our expertise in commercial door refinishing and protective coating application.</p>
+            <div class="card-content">
+              <h3 class="card-title">Commercial Door Restoration</h3>
+              <p class="card-description">Complete transformation with professional surface preparation and premium protective coating application.</p>
             </div>
           </div>
           
-          <div class="before-after-card">
-            <div class="before-after-images">
-              <div class="before-section">
-                <img src="images/outdoor-woodwork.jpg" alt="Before: Exterior Work" class="before-image">
+          <div class="comparison-card">
+            <div class="comparison-images">
+              <div class="image-container">
+                <img src="images/outdoor-woodwork.jpg" alt="Before work" class="comparison-image">
+                <div class="image-label before-label">BEFORE</div>
               </div>
-              <div class="after-section">
-                <img src="images/blue-ceiling.jpg" alt="After: Interior Ceiling" class="after-image">
+              <div class="image-container">
+                <img src="images/blue-ceiling.jpg" alt="After work" class="comparison-image">
+                <div class="image-label after-label">AFTER</div>
               </div>
-              <div class="divider"></div>
+              <div class="separator"></div>
             </div>
-            <div class="before-after-content">
-              <h3 class="before-after-title">Commercial Space Transformation</h3>
-              <p class="before-after-description">From exterior restoration to stunning interior ceiling work, showcasing our versatility in both outdoor weatherproofing and precision interior finishing techniques.</p>
+            <div class="card-content">
+              <h3 class="card-title">Commercial Space Upgrade</h3>
+              <p class="card-description">From weathered exterior to stunning interior finish, showcasing our versatility and attention to detail.</p>
             </div>
           </div>
 
-          <div class="before-after-card">
-            <div class="before-after-images">
-              <div class="before-section">
-                <img src="images/museum-cream.jpg" alt="Before: Wall Treatment" class="before-image">
+          <div class="comparison-card">
+            <div class="comparison-images">
+              <div class="image-container">
+                <img src="images/museum-cream.jpg" alt="Before enhancement" class="comparison-image">
+                <div class="image-label before-label">BEFORE</div>
               </div>
-              <div class="after-section">
-                <img src="images/feature-wall.jpg" alt="After: Feature Wall" class="after-image">
+              <div class="image-container">
+                <img src="images/feature-wall.jpg" alt="After enhancement" class="comparison-image">
+                <div class="image-label after-label">AFTER</div>
               </div>
-              <div class="divider"></div>
+              <div class="separator"></div>
             </div>
-            <div class="before-after-content">
-              <h3 class="before-after-title">Interior Wall Enhancement</h3>
-              <p class="before-after-description">Professional transformation from standard corridor walls to striking geometric feature walls, showcasing our expertise in modern design and precision execution.</p>
+            <div class="card-content">
+              <h3 class="card-title">Modern Feature Wall</h3>
+              <p class="card-description">Transformed from standard walls to striking geometric design with precision execution.</p>
             </div>
           </div>
         </div>
@@ -555,62 +567,62 @@
         
         <div class="gallery">
           <div class="project-card">
-            <div class="card-image">
+            <div class="project-card-image">
               <img src="images/blue-ceiling.jpg" alt="Commercial Blue Ceiling Work" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="card-content">
-              <h3 class="card-title">Commercial Blue Accent Ceiling</h3>
-              <p class="card-description">Professional commercial finish with specialized techniques ensuring durability and visual impact in high-traffic environments.</p>
+            <div class="project-card-content">
+              <h3 class="project-card-title">Commercial Blue Accent Ceiling</h3>
+              <p class="project-card-description">Professional commercial finish with specialized techniques ensuring durability and visual impact in high-traffic environments.</p>
             </div>
           </div>
           
           <div class="project-card">
-            <div class="card-image">
+            <div class="project-card-image">
               <img src="images/feature-wall.jpg" alt="Modern Feature Wall Design" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="card-content">
-              <h3 class="card-title">Modern Feature Wall Design</h3>
-              <p class="card-description">Contemporary geometric patterns with premium color blocking, creating sophisticated architectural interest in residential spaces.</p>
+            <div class="project-card-content">
+              <h3 class="project-card-title">Modern Feature Wall Design</h3>
+              <p class="project-card-description">Contemporary geometric patterns with premium color blocking, creating sophisticated architectural interest in residential spaces.</p>
             </div>
           </div>
           
           <div class="project-card">
-            <div class="card-image">
+            <div class="project-card-image">
               <img src="images/outdoor-woodwork.jpg" alt="Exterior Building Restoration" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="card-content">
-              <h3 class="card-title">Commercial Exterior Restoration</h3>
-              <p class="card-description">Complete building facade restoration including surface preparation, priming, and premium weather-resistant finish application.</p>
+            <div class="project-card-content">
+              <h3 class="project-card-title">Commercial Exterior Restoration</h3>
+              <p class="project-card-description">Complete building facade restoration including surface preparation, priming, and premium weather-resistant finish application.</p>
             </div>
           </div>
           
           <div class="project-card">
-            <div class="card-image">
+            <div class="project-card-image">
               <img src="images/museum-cream.jpg" alt="Commercial Corridor Painting" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="card-content">
-              <h3 class="card-title">Corporate Corridor Enhancement</h3>
-              <p class="card-description">Precision wall paneling with gold accent detailing, creating elegant professional environments for modern office spaces.</p>
+            <div class="project-card-content">
+              <h3 class="project-card-title">Corporate Corridor Enhancement</h3>
+              <p class="project-card-description">Precision wall paneling with gold accent detailing, creating elegant professional environments for modern office spaces.</p>
             </div>
           </div>
           
           <div class="project-card">
-            <div class="card-image">
+            <div class="project-card-image">
               <img src="images/garage-door-after.jpg" alt="High-Gloss Commercial Doors" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="card-content">
-              <h3 class="card-title">Premium Commercial Door Finish</h3>
-              <p class="card-description">High-gloss protective coating on commercial entrance doors, combining durability with sophisticated brown finish for lasting appeal.</p>
+            <div class="project-card-content">
+              <h3 class="project-card-title">Premium Commercial Door Finish</h3>
+              <p class="project-card-description">High-gloss protective coating on commercial entrance doors, combining durability with sophisticated brown finish for lasting appeal.</p>
             </div>
           </div>
           
           <div class="project-card">
-            <div class="card-image">
+            <div class="project-card-image">
               <img src="images/garage-door-before.jpg" alt="Commercial Wall Paneling" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="card-content">
-              <h3 class="card-title">Executive Office Wall Systems</h3>
-              <p class="card-description">Sophisticated dark green paneling with gold trim detailing for premium corporate environments requiring elegant professional aesthetics.</p>
+            <div class="project-card-content">
+              <h3 class="project-card-title">Executive Office Wall Systems</h3>
+              <p class="project-card-description">Sophisticated dark green paneling with gold trim detailing for premium corporate environments requiring elegant professional aesthetics.</p>
             </div>
           </div>
         </div>
@@ -679,8 +691,8 @@
       });
     }, observerOptions);
 
-    // Observe all project cards and before/after cards
-    document.querySelectorAll('.project-card, .before-after-card').forEach(card => {
+    // Observe all project cards and comparison cards
+    document.querySelectorAll('.project-card, .comparison-card').forEach(card => {
       card.style.opacity = '0';
       card.style.transform = 'translateY(30px)';
       card.style.transition = 'all 0.6s ease';
