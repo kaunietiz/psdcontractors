@@ -165,7 +165,7 @@
 
     .before-after-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 40px;
       margin-top: 60px;
     }
@@ -186,85 +186,84 @@
       border-color: rgba(218, 165, 32, 0.4);
     }
 
-    .comparison-slider {
-      position: relative;
-      width: 100%;
+    .before-after-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       height: 300px;
+    }
+
+    .before-section, .after-section {
+      position: relative;
       overflow: hidden;
-      cursor: ew-resize;
+    }
+
+    .before-section::before {
+      content: 'BEFORE';
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #DAA520;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(218, 165, 32, 0.3);
+    }
+
+    .after-section::before {
+      content: 'AFTER';
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #DAA520;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(218, 165, 32, 0.3);
     }
 
     .before-image, .after-image {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease;
     }
 
-    .after-image {
-      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
-      transition: clip-path 0.3s ease;
+    .before-section:hover .before-image,
+    .after-section:hover .after-image {
+      transform: scale(1.05);
     }
 
-    .slider-handle {
+    .divider {
       position: absolute;
-      top: 0;
+      top: 50%;
       left: 50%;
-      width: 4px;
-      height: 100%;
+      width: 3px;
+      height: 60%;
       background: linear-gradient(180deg, #DAA520, #FFD700);
-      transform: translateX(-50%);
-      z-index: 3;
-      cursor: ew-resize;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      border-radius: 2px;
     }
 
-    .slider-handle::before {
+    .divider::before {
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 20px;
-      height: 20px;
+      width: 12px;
+      height: 12px;
       background: #DAA520;
       border-radius: 50%;
       transform: translate(-50%, -50%);
-      box-shadow: 0 0 0 3px #0a0a0a, 0 0 20px rgba(218, 165, 32, 0.5);
-    }
-
-    .slider-handle::after {
-      content: '↔';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #0a0a0a;
-      font-weight: bold;
-      font-size: 12px;
-      z-index: 1;
-    }
-
-    .before-after-labels {
-      position: absolute;
-      top: 20px;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 20px;
-      z-index: 2;
-    }
-
-    .label {
-      background: rgba(0, 0, 0, 0.7);
-      color: #DAA520;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(218, 165, 32, 0.3);
+      box-shadow: 0 0 0 2px #0a0a0a;
     }
 
     .before-after-content {
@@ -490,19 +489,19 @@
         <h2 class="section-title">Transformations</h2>
         <p class="section-subtitle">
           See the dramatic difference our professional work makes. 
-          Drag the slider to reveal the transformation.
+          Clear before and after comparisons of our transformations.
         </p>
         
         <div class="before-after-container">
           <div class="before-after-card">
-            <div class="comparison-slider" data-before="images/garage-door-before.jpg" data-after="images/garage-door-after.jpg">
-              <div class="before-after-labels">
-                <span class="label">BEFORE</span>
-                <span class="label">AFTER</span>
+            <div class="before-after-images">
+              <div class="before-section">
+                <img src="images/garage-door-before.jpg" alt="Before: Garage Door" class="before-image">
               </div>
-              <img src="images/garage-door-before.jpg" alt="Before: Garage Door" class="before-image">
-              <img src="images/garage-door-after.jpg" alt="After: Garage Door" class="after-image">
-              <div class="slider-handle"></div>
+              <div class="after-section">
+                <img src="images/garage-door-after.jpg" alt="After: Garage Door" class="after-image">
+              </div>
+              <div class="divider"></div>
             </div>
             <div class="before-after-content">
               <h3 class="before-after-title">Commercial Door Restoration</h3>
@@ -511,18 +510,34 @@
           </div>
           
           <div class="before-after-card">
-            <div class="comparison-slider" data-before="images/outdoor-woodwork.jpg" data-after="images/blue-ceiling.jpg">
-              <div class="before-after-labels">
-                <span class="label">BEFORE</span>
-                <span class="label">AFTER</span>
+            <div class="before-after-images">
+              <div class="before-section">
+                <img src="images/outdoor-woodwork.jpg" alt="Before: Exterior Work" class="before-image">
               </div>
-              <img src="images/outdoor-woodwork.jpg" alt="Before: Exterior Work" class="before-image">
-              <img src="images/blue-ceiling.jpg" alt="After: Interior Ceiling" class="after-image">
-              <div class="slider-handle"></div>
+              <div class="after-section">
+                <img src="images/blue-ceiling.jpg" alt="After: Interior Ceiling" class="after-image">
+              </div>
+              <div class="divider"></div>
             </div>
             <div class="before-after-content">
               <h3 class="before-after-title">Commercial Space Transformation</h3>
               <p class="before-after-description">From exterior restoration to stunning interior ceiling work, showcasing our versatility in both outdoor weatherproofing and precision interior finishing techniques.</p>
+            </div>
+          </div>
+
+          <div class="before-after-card">
+            <div class="before-after-images">
+              <div class="before-section">
+                <img src="images/museum-cream.jpg" alt="Before: Wall Treatment" class="before-image">
+              </div>
+              <div class="after-section">
+                <img src="images/feature-wall.jpg" alt="After: Feature Wall" class="after-image">
+              </div>
+              <div class="divider"></div>
+            </div>
+            <div class="before-after-content">
+              <h3 class="before-after-title">Interior Wall Enhancement</h3>
+              <p class="before-after-description">Professional transformation from standard corridor walls to striking geometric feature walls, showcasing our expertise in modern design and precision execution.</p>
             </div>
           </div>
         </div>
@@ -646,53 +661,6 @@
       e.preventDefault();
       document.querySelector('#portfolio').scrollIntoView({
         behavior: 'smooth'
-      });
-    });
-
-    // Before/After Slider Functionality
-    document.querySelectorAll('.comparison-slider').forEach(slider => {
-      const afterImage = slider.querySelector('.after-image');
-      const handle = slider.querySelector('.slider-handle');
-      let isDragging = false;
-
-      function updateSlider(e) {
-        if (!isDragging && e.type !== 'mousemove') return;
-        
-        const rect = slider.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-        
-        afterImage.style.clipPath = `polygon(${percentage}% 0%, 100% 0%, 100% 100%, ${percentage}% 100%)`;
-        handle.style.left = `${percentage}%`;
-      }
-
-      slider.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        updateSlider(e);
-      });
-
-      document.addEventListener('mousemove', updateSlider);
-      
-      document.addEventListener('mouseup', () => {
-        isDragging = false;
-      });
-
-      // Touch support for mobile
-      slider.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        const touch = e.touches[0];
-        updateSlider(touch);
-      });
-
-      slider.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const touch = e.touches[0];
-        updateSlider(touch);
-      });
-
-      slider.addEventListener('touchend', () => {
-        isDragging = false;
       });
     });
 
