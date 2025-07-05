@@ -157,133 +157,6 @@
       margin-right: auto;
     }
 
-    /* Before/After Section */
-    .before-after-section {
-      background: linear-gradient(135deg, rgba(218, 165, 32, 0.05), transparent);
-      border-top: 1px solid rgba(218, 165, 32, 0.2);
-    }
-
-    .before-after-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 40px;
-      margin-top: 60px;
-    }
-
-    .before-after-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      overflow: hidden;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(218, 165, 32, 0.2);
-      transition: all 0.4s ease;
-      position: relative;
-    }
-
-    .before-after-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 60px rgba(218, 165, 32, 0.2);
-      border-color: rgba(218, 165, 32, 0.4);
-    }
-
-    .comparison-slider {
-      position: relative;
-      width: 100%;
-      height: 300px;
-      overflow: hidden;
-      cursor: ew-resize;
-    }
-
-    .before-image, .after-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .after-image {
-      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
-      transition: clip-path 0.3s ease;
-    }
-
-    .slider-handle {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, #DAA520, #FFD700);
-      transform: translateX(-50%);
-      z-index: 3;
-      cursor: ew-resize;
-    }
-
-    .slider-handle::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 20px;
-      height: 20px;
-      background: #DAA520;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 0 3px #0a0a0a, 0 0 20px rgba(218, 165, 32, 0.5);
-    }
-
-    .slider-handle::after {
-      content: '↔';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #0a0a0a;
-      font-weight: bold;
-      font-size: 12px;
-      z-index: 1;
-    }
-
-    .before-after-labels {
-      position: absolute;
-      top: 20px;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 20px;
-      z-index: 2;
-    }
-
-    .label {
-      background: rgba(0, 0, 0, 0.7);
-      color: #DAA520;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(218, 165, 32, 0.3);
-    }
-
-    .before-after-content {
-      padding: 25px;
-    }
-
-    .before-after-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #DAA520;
-      margin-bottom: 10px;
-    }
-
-    .before-after-description {
-      color: #cccccc;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
     /* Gallery Grid */
     .gallery {
       display: grid;
@@ -452,11 +325,6 @@
         gap: 20px;
       }
       
-      .before-after-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      
       .hero {
         min-height: 80vh;
       }
@@ -484,51 +352,6 @@
 
   <!-- Main Content -->
   <div class="main-content">
-    <!-- Before/After Section -->
-    <section class="before-after-section section">
-      <div class="container">
-        <h2 class="section-title">Transformations</h2>
-        <p class="section-subtitle">
-          See the dramatic difference our professional work makes. 
-          Drag the slider to reveal the transformation.
-        </p>
-        
-        <div class="before-after-container">
-          <div class="before-after-card">
-            <div class="comparison-slider" data-before="images/garage-door-before.jpg" data-after="images/garage-door-after.jpg">
-              <div class="before-after-labels">
-                <span class="label">BEFORE</span>
-                <span class="label">AFTER</span>
-              </div>
-              <img src="images/garage-door-before.jpg" alt="Before: Garage Door" class="before-image">
-              <img src="images/garage-door-after.jpg" alt="After: Garage Door" class="after-image">
-              <div class="slider-handle"></div>
-            </div>
-            <div class="before-after-content">
-              <h3 class="before-after-title">Commercial Door Restoration</h3>
-              <p class="before-after-description">Complete transformation from weathered surfaces to premium high-gloss finish, demonstrating our expertise in commercial door refinishing and protective coating application.</p>
-            </div>
-          </div>
-          
-          <div class="before-after-card">
-            <div class="comparison-slider" data-before="images/outdoor-woodwork.jpg" data-after="images/blue-ceiling.jpg">
-              <div class="before-after-labels">
-                <span class="label">BEFORE</span>
-                <span class="label">AFTER</span>
-              </div>
-              <img src="images/outdoor-woodwork.jpg" alt="Before: Exterior Work" class="before-image">
-              <img src="images/blue-ceiling.jpg" alt="After: Interior Ceiling" class="after-image">
-              <div class="slider-handle"></div>
-            </div>
-            <div class="before-after-content">
-              <h3 class="before-after-title">Commercial Space Transformation</h3>
-              <p class="before-after-description">From exterior restoration to stunning interior ceiling work, showcasing our versatility in both outdoor weatherproofing and precision interior finishing techniques.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Portfolio Section -->
     <section id="portfolio" class="section">
       <div class="container">
@@ -649,53 +472,6 @@
       });
     });
 
-    // Before/After Slider Functionality
-    document.querySelectorAll('.comparison-slider').forEach(slider => {
-      const afterImage = slider.querySelector('.after-image');
-      const handle = slider.querySelector('.slider-handle');
-      let isDragging = false;
-
-      function updateSlider(e) {
-        if (!isDragging && e.type !== 'mousemove') return;
-        
-        const rect = slider.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-        
-        afterImage.style.clipPath = `polygon(${percentage}% 0%, 100% 0%, 100% 100%, ${percentage}% 100%)`;
-        handle.style.left = `${percentage}%`;
-      }
-
-      slider.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        updateSlider(e);
-      });
-
-      document.addEventListener('mousemove', updateSlider);
-      
-      document.addEventListener('mouseup', () => {
-        isDragging = false;
-      });
-
-      // Touch support for mobile
-      slider.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        const touch = e.touches[0];
-        updateSlider(touch);
-      });
-
-      slider.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const touch = e.touches[0];
-        updateSlider(touch);
-      });
-
-      slider.addEventListener('touchend', () => {
-        isDragging = false;
-      });
-    });
-
     // Add scroll animations
     const observerOptions = {
       threshold: 0.1,
@@ -711,8 +487,8 @@
       });
     }, observerOptions);
 
-    // Observe all project cards and before/after cards
-    document.querySelectorAll('.project-card, .before-after-card').forEach(card => {
+    // Observe all project cards
+    document.querySelectorAll('.project-card').forEach(card => {
       card.style.opacity = '0';
       card.style.transform = 'translateY(30px)';
       card.style.transition = 'all 0.6s ease';
